@@ -6,12 +6,12 @@ $(window).load(onLoad);
 function onLoad() {
 	//startRotator(".rolling");
     scroller = new Scroller(".rolling", "scroller", 5000);
-	$(".button").bind( "click", onClick);
-	$(".button").bind( "mouseenter", onMouseEnter);
-	$(".button").bind( "mouseleave", onMouseLeave);
+	$(".button").bind( "click", onClick_Button);
+	$(".menu a").bind( "mouseenter", onMouseEnter_Menu).bind( "mouseleave", onMouseLeave_Menu);
+	$(".submenu").bind( "mouseenter", onMouseEnter_Submenu).bind( "mouseleave", onMouseLeave_Submenu);
 }
 
-function onClick(event) {
+function onClick_Button(event) {
 	var name = event.currentTarget.name;
     switch (name) {
         case "prev":
@@ -20,15 +20,28 @@ function onClick(event) {
         case "next":
             scroller.rotateBackward(".rolling");
             break;
+        default:
+            alert(name);
+            break;
     }
 }
 
-function onMouseEnter(event) {
-	
+function onMouseEnter_Menu(event) {
+	var name = event.currentTarget.className;
+    $(".submenu."+name).show();
+}
+function onMouseLeave_Menu(event) {
+	var name = event.currentTarget.className;
+    $(".submenu."+name).hide();
 }
 
-function onMouseLeave(event) {
-	
+function onMouseEnter_Submenu(event) {
+	var name = event.currentTarget.className.replace("submenu ", "");
+    $(".submenu."+name).show();
+}
+function onMouseLeave_Submenu(event) {
+	var name = event.currentTarget.className.replace("submenu ", "");
+    $(".submenu").hide();
 }
 
 /*
