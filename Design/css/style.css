@@ -2,7 +2,8 @@
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
 body,input,textarea,select,button,table{font-family:'NanumGothic','돋움',Dotum,sans-serif;}
-img,fieldset,button{border:0}
+img,fieldset{border:0;border: 0;}
+button{border:0;border: 0;outline: 0; background: #fff; cursor: pointer;}
 ul,ol{list-style:none}
 em,address{font-style:normal}
 a{text-decoration:none; color:#333;}
@@ -63,7 +64,7 @@ margin-right:20px;
 
 
 /* HEADER */
-h1 {
+.geeps h1 {
 width:446px;
 height:66px;
 margin:0 auto;
@@ -71,7 +72,7 @@ padding:0;
 cursor:pointer;
 background:url(../images/logo.png) no-repeat 0 0;
 }
-h1 span {
+.geeps h1 span {
 visibility:hidden;
 }
 
@@ -112,87 +113,100 @@ border-left:1px solid #adadad;
 float:left;
 display:inline;
 border-right:1px solid #adadad;
+border-top:1px solid #adadad;
+border-bottom:1px solid #adadad;
 }
-.menu li a * {
+.menu li button * {
 vertical-align:middle;
 }
-.menu li a {
+.menu li button {
 display:inline-block;
 float:left;
 height:58px;
 width:196px;
+    background: #fff;
 background-image:url(../images/menu.png);
 background-repeat:no-repeat;
 }
-.menu li a.about {
-background-position:0 0;	
+.menu li button.about {
+background-position:0 0;
 }
-.menu a.on {
+.menu button.on {
 color:#FFF;
-background-color:#588adf;		
+background-color:#588adf;
 }
-.menu li a.about.on{
+.menu li button.about {
+background-position:0 0;
+}
+.menu button.on {
+color:#FFF;
+background-color:#588adf;
+}
+.menu li button.about.on{
 background-position:0 -57px;
 }
-.menu a.edu {
+.menu button.edu {
 background-position:0 -114px;
 }
-.menu a.edu.on {
+.menu button.edu.on {
 background-position:0 -171px;
 }
-.menu a.down {
+.menu button.down {
 background-position:0 -228px;
 }
-.menu a.down.on {
+.menu button.down.on {
 background-position:0 -285px;
 }
-.menu a.tech {
+.menu button.tech {
 background-position:0 -342px;
 }
-.menu a.tech.on {
+.menu button.tech.on {
 background-position:0 -399px;
 }
-.menu a.com {
+.menu button.com {
 background-position:0 -456px;
 }
-.menu a.com.on{
+.menu button.com.on{
 background-position:0 -513px;
 }
 
 
-.menu li a.about:hover {
+.menu li button.about:hover {
 color:#FFF;
-background-color:#588adf;		
+background-color:#588adf;
 background-position:0 -57px;
 }
-.menu a.edu:hover {
+.menu button.edu:hover {
 color:#FFF;
-background-color:#588adf;		
+background-color:#588adf;
 background-position:0 -171px;
 }
-.menu a.down:hover {
+.menu button.down:hover {
 color:#FFF;
-background-color:#588adf;		
+background-color:#588adf;
 background-position:0 -285px;
 }
-.menu a.tech:hover {
+.menu button.tech:hover {
 color:#FFF;
-background-color:#588adf;		
+background-color:#588adf;
 background-position:0 -399px;
 }
-.menu a.com:hover {
+.menu button.com:hover {
 color:#FFF;
-background-color:#588adf;		
+background-color:#588adf;
 background-position:0 -513px;
 }
 
 
-.menu a span {
+.menu button span {
 display:inline-block;
-margin:15px 0 0 85px;
 font-size:18px;
 font-weight:bold;
+vertical-align: middle;
+text-align: center;
+margin-left: 50px;
 }
+
 
 .submenu {
 position:absolute;
@@ -221,8 +235,22 @@ text-decoration:underline;
 color:#588adf;
 }
 
+.submenu button {
+display:inline-block;
+margin:5px;
+padding-left:20px;
+font-size:13px;
+background: #fff;
+}
+.submenu button:hover {
+font-weight: bold;
+}
+.submenu button.on {
+color:#588adf;
+}
+
 /* COMMON */
-h2 {
+.contents h2 {
 margin-bottom:30px;
 }
 .contents .location {
@@ -350,7 +378,6 @@ position:relative;
 font-size:18px;
 font-weight:bold;
 margin-bottom:15px;
-cursor:pointer;
 }
 .board_list > h3 > .more {
 position:absolute;
@@ -374,14 +401,6 @@ margin-bottom:10px;
 text-overflow: ellipsis;
 overflow: hidden;
 white-space: nowrap;
-}
-.board_list li a.kari {
-padding-left:40px;
-background:url(../images/ico_kari.png) no-repeat left 0;
-}
-.board_list li a.msip {
-padding-left:40px;
-background:url(../images/ico_msip.png) no-repeat left 0;
 }
 .board_list li span.date {
 display:inline-block;
@@ -444,5 +463,40 @@ cursor:pointer;
 background:url(../images/btn_banner.png) no-repeat 0 -30px;
 }
 .banner .prev span {
-visibility:none;
+visibility:hidden;
+}
+
+.wiki {
+    line-height: 1.5em;
+    font-size: 13px;
+}
+.wiki a {
+   color: #0645AD;
+}
+.wiki a:hover {
+    text-decoration: underline;
+}
+.wiki h1 {
+    font-size: 2em;
+    padding: 0;
+    margin: 2.5px;
+}
+.wiki h2 {
+    font-size: 1.8em;
+    padding: 0;
+    margin: 2.3px;
+}
+.wiki h5 {
+    font-size: 1.05em;
+    padding: 0;
+    margin: 2.3px;
+}
+.wiki .toc {
+  display: -moz-inline-block;
+  display: inline-block;
+  display: table;
+  zoom: 1;
+  padding: 7px;
+    border: 1px solid #AAAAAA;!important;
+    background: #F9F9F9;
 }
