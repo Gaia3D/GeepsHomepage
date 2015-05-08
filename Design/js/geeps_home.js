@@ -8,6 +8,21 @@ function onLoad() {
 	$("button").bind( "click", onClick_Button);
 	$(".menu button").bind( "mouseenter", onMouseEnter_Menu).bind( "mouseleave", onMouseLeave_Menu);
 	$(".submenu").bind( "mouseenter", onMouseEnter_Submenu).bind( "mouseleave", onMouseLeave_Submenu);
+
+    var wiki = getParameterByName("wiki");
+    if (wiki) {
+        var menu = "?", submenu = "?";
+        var menuObj = findMenuByWiki(wiki);
+        if (menuObj) {
+            menu = menuObj.menu;
+            submenu = menuObj.submenu;
+        }
+        loadWiki(menu, submenu, wiki);
+    }
+	else {
+		$("#contents_main").show();
+		$("#contents_wrap").hide();
+	}
 }
 
 // act by datatype and datasrc
@@ -29,10 +44,12 @@ function onClick_Button(event) {
             break;
 
         case "wiki":
-            var menu = findMenu(obj);
+            //var menu = findMenu(obj);
             var submenu = obj.text();
             var title = datasrc ? datasrc : submenu;
-            loadWiki(menu, submenu, title);
+            //loadWiki(menu, submenu, title);
+            searchText = "?wiki="+title;
+            location.search = searchText;
             break;
 
         case "move_to":
@@ -114,6 +131,34 @@ Scroller.prototype.rotateBackward = function() {
 /*
 ** WIKI
  */
+function loadWiki(menu, submenu, title) {
+    var apiUrl = "http://geeps.krihs.re.kr/wiki/index.php?action=render&title=" + encodeURIComponent(title);
+    var errorMessage ='<h1>죄송합니다.</h1> 요청한 자료를 읽지 못했습니다.<br>잠시 후 다시 시도해 주십시오.';
+
+    $("#contents_title").html(title);
+    $("#contents_menu").html(menu);
+    $("#contents_submenu").html(submenu);
+    $("#contents_html").html("내용을 불러오고 있습니다...");
+
+
+    $.ajax({
+        method: "GET",
+        url: apiUrl,
+        dataType: "html"
+    }).done(function (html) {
+        $("#contents_html").html(html);
+    }).fail(function( jqXHR, textStatus ) {
+        //alert( "Request failed: " + textStatus );
+        $("#contents_html").html(errorMessage);
+    });
+
+    $("#contents_main").hide();
+    $("#contents_wrap").show();
+}
+
+/*
+** UTIL
+ */
 function findMenu(obj) {
     var menuClass = null;
     if (obj.hasClass("about"))
@@ -139,28 +184,23 @@ function findMenu(obj) {
 
     return $(".menu ."+menuClass+" span").text();
 }
+function findMenuByWiki(wiki) {
+    var buttonList = $(".submenu button");
+    for (var i=0; i<buttonList.length; i++) {
+        var obj = $(buttonList[i]);
+        var submenu = obj.text();
+        var title = obj.attr("datasrc") ? obj.attr("datasrc") : submenu;
+        if (title == wiki) {
+            var menu = findMenu(obj);
+            return {"menu":menu,"submenu":submenu};
+        }
+    }
+}
 
-function loadWiki(menu, submenu, title) {
-    var apiUrl = "http://geeps.krihs.re.kr/wiki/index.php?action=render&title=" + title;
-    var errorMessage ='<h1>죄송합니다.</h1> 요청한 자료를 읽지 못했습니다.<br>잠시 후 다시 시도해 주십시오.';
-
-    $("#contents_title").html(title);
-    $("#contents_menu").html(menu);
-    $("#contents_submenu").html(submenu);
-    $("#contents_html").html("내용을 불러오고 있습니다...");
-
-
-    $.ajax({
-        method: "GET",
-        url: apiUrl,
-        dataType: "html"
-    }).done(function (html) {
-        $("#contents_html").html(html);
-    }).fail(function( jqXHR, textStatus ) {
-        //alert( "Request failed: " + textStatus );
-        $("#contents_html").html(errorMessage);
-    });
-
-    $("#contents_main").hide();
-    $("#contents_wrap").show();
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    var ret = (results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " ")));
+    return ret.replace("<","").replace(">","");
 }
