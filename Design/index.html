@@ -7,6 +7,7 @@
     <title>연구교육 공간정보기술 통합플랫폼</title>
     <link type="text/css" href="./css/style.css" rel="stylesheet">
     <script type="text/javascript" src="./js/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.fileDownload.js"></script>
     <script type="text/javascript" src="./js/geeps_home.js"></script>
 </head>
 
@@ -29,7 +30,7 @@
                 <button datatype="wiki" datasrc="GEEPS 소개" class="about"><span>About</span></button>
             </li>
             <li>
-                <button datatype="link" datasrc="http://geeps.krihs.re.kr/edu/" class="edu"><span>Education</span></button>
+                <button datatype="move_to" datasrc="http://geeps.krihs.re.kr/edu/" class="edu"><span>Education</span></button>
             </li>
             <li>
                 <button datatype="link" datasrc="http://geeps.krihs.re.kr/download/" class="down"><span>Download</span></button>
@@ -38,7 +39,7 @@
                 <button datatype="wiki" class="tech"><span>Tech Info</span></button>
             </li>
             <li>
-                <button datatype="wiki" class="com"><span>Community</span></button>
+                <button datatype="link"  datasrc="http://geeps.krihs.re.kr/board/" class="com"><span>Community</span></button>
             </li>
         </ul>
         <!-- END MENU -->
@@ -47,7 +48,7 @@
         	<li><button datatype="wiki">GEEPS 소개</button></li>
         </ul>
         <ul class="submenu edu" style="display:none; left:197px;">
-        	<li><button datatype="link" datasrc="http://geeps.krihs.re.kr/edu/">온라인 교육 사이트</button></li>
+        	<li><button datatype="move_to" datasrc="http://geeps.krihs.re.kr/edu/">온라인 교육 사이트</button></li>
         </ul>
         <ul class="submenu down" style="display:none; left:394px;">
         	<li><button datatype="link" datasrc="http://geeps.krihs.re.kr/download/">제품/교육교재 다운로드</button></li>
@@ -55,19 +56,18 @@
         <ul class="submenu tech" style="display:none; left:591px;">
         	<li><button datatype="wiki">QGIS 컴파일 가이드</button></li>
         	<li><button datatype="wiki">GeoServer 컴파일 가이드</button></li>
-            <li><button datatype="wiki">공간통계 분석기법</button></li>
-            <li><button datatype="wiki">WPS 연계 API모듈</button></li>
-            <li><button datatype="wiki">플러그인</button></li>
-            <li><button datatype="wiki">QGIS 스크립트 모음</button></li>
-            <li><button datatype="wiki">기타</button></li>
+            <li><button datatype="wiki" datasrc="QGIS에서 공간통계 분석기법 활용">QGIS 공간통계 분석기법</button></li>
+            <li><button datatype="wiki" datasrc="QGIS WPS 연계 API 모듈의 활용">QGIS WPS API 모듈 활용</button></li>
+            <li><button datatype="wiki" datasrc="QGIS TMS for Korea 플러그인">TMS for Korea 플러그인</button></li>
+            <li><button datatype="wiki" datasrc="QGIS Python 스크립트 모음">QGIS Python 스크립트 모음</button></li>
+            <li><button datatype="wiki">무료 공간자료 취득방법</button></li>
         </ul>
         <ul class="submenu com" style="display:none; left:788px;">
-        	<li><button datatype="link" datasrc="">GEEPS에게 바라다</button></li>
-            <li><button datatype="link" datasrc="http://osgeo.kr" class="on">오픈소스 GIS 커뮤니티</button></li>
+        	<li><button datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=geeps">GEEPS에게 바라다</button></li>
+            <li><button datatype="link" datasrc="http://osgeo.kr">오픈소스 GIS 커뮤니티</button></li>
             <li><button datatype="wiki">한글화 참여하기</button></li>
-            <li><button datatype="link" datasrc="">자유게시판</button></li>
             <li><button datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=notice">공지사항</button></li>
-            <li><button datatype="link" datasrc="">Q&A</button></li>
+            <li><button datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=qna">Q&A</button></li>
         </ul>
         <!-- END SUBMENU -->
     </div>
@@ -101,7 +101,7 @@
                 <button datatype="link" datasrc="http://sourceforge.net/projects/kaosg/files/kaosg_qgis/1.0/Kaos-G_1.0-Setup-x86_64.exe/download">
                     64Bit 버전
                 </button>
-                <button datatype="link" datasrc="http://geeps.krihs.re.kr/download/files/Sample_Data.zip">
+                <button datatype="download" datasrc="http://geeps.krihs.re.kr/download/files/Sample_Data.zip">
                     교육용샘플
                 </button>
             </div>

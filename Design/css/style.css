@@ -124,16 +124,9 @@ display:inline-block;
 float:left;
 height:58px;
 width:196px;
-    background: #fff;
+background: #fff;
 background-image:url(../images/menu.png);
 background-repeat:no-repeat;
-}
-.menu li button.about {
-background-position:0 0;
-}
-.menu button.on {
-color:#FFF;
-background-color:#588adf;
 }
 .menu li button.about {
 background-position:0 0;
@@ -477,19 +470,24 @@ visibility:hidden;
     text-decoration: underline;
 }
 .wiki h1 {
-    font-size: 2em;
-    padding: 0;
-    margin: 2.5px;
+  font-size: 1.5em;
+  padding: 15px 0 10px 0;
 }
 .wiki h2 {
-    font-size: 1.8em;
-    padding: 0;
-    margin: 2.3px;
+  font-size: 1.3em;
+  padding: 10px 0 8px 0;
+}
+.wiki h3 {
+  font-size: 1.2em;
+  padding: 8px 0 6px 0;
+}
+.wiki h4 {
+  font-size: 1.1em;
+  padding: 6px 0 4px 0;
 }
 .wiki h5 {
     font-size: 1.05em;
-    padding: 0;
-    margin: 2.3px;
+    padding: 4px 0 3px 0;
 }
 .wiki .toc {
   display: -moz-inline-block;
