@@ -471,23 +471,33 @@ visibility:hidden;
 }
 .wiki h1 {
   font-size: 1.5em;
-  padding: 15px 0 10px 0;
+  padding: 30px 0 10px 0;
+  margin: 0;
 }
 .wiki h2 {
   font-size: 1.3em;
-  padding: 10px 0 8px 0;
+  padding: 20px 0 8px 0;
+  margin: 0;
 }
 .wiki h3 {
   font-size: 1.2em;
-  padding: 8px 0 6px 0;
+  padding: 15px 0 6px 0;
+  margin: 0;
 }
 .wiki h4 {
   font-size: 1.1em;
-  padding: 6px 0 4px 0;
+  padding: 8px 0 4px 0;
+  margin: 0;
 }
 .wiki h5 {
-    font-size: 1.05em;
-    padding: 4px 0 3px 0;
+  font-size: 1.05em;
+  padding: 4px 0 3px 0;
+  margin: 0;
+}
+.wiki li {
+  list-style: inherit;
+  list-style-type: disc;
+  margin-left: 20px;
 }
 .wiki .toc {
   display: -moz-inline-block;
@@ -497,4 +507,21 @@ visibility:hidden;
   padding: 7px;
     border: 1px solid #AAAAAA;!important;
     background: #F9F9F9;
+}
+.wiki .toc h2 {
+  text-align: center;
+  font-size: 1em;
+  padding: 0 0 5px 0;
+}
+.wiki .toclevel-1 {
+  list-style: none;
+  margin-left: 0;
+}
+.wiki .toclevel-2 {
+  list-style: none;
+  margin-left: 10px;
+}
+.wiki .toclevel-3 {
+  list-style: none;
+  margin-left: 20px;
 }
