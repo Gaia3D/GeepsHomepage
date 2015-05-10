@@ -261,6 +261,11 @@ color:#999;
 font-size:12px;	
 background:url(../images/location.png) no-repeat left;
 }
+.contents .line {
+margin-bottom:30px;
+border:1px solid #588adf;
+border-collapse:collapse;
+}
 
 /* MAIN */
 .section {
