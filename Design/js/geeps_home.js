@@ -22,6 +22,9 @@ function onLoad() {
 	else {
 		$("#contents_main").show();
 		$("#contents_wrap").hide();
+
+        fillNotice();
+        fillQNA();
 	}
 }
 
@@ -154,6 +157,35 @@ function loadWiki(menu, submenu, title) {
 
     $("#contents_main").hide();
     $("#contents_wrap").show();
+}
+
+/*
+** BOARD
+*/
+function fillNotice() {
+    $.ajax({
+        method: "GET",
+        url: "/board/bbs/api_board.php?bo_table=notice&li_num=6",
+        dataType: "html"
+    }).done(function (html) {
+        $("#notice_list").html(html);
+    }).fail(function( jqXHR, textStatus ) {
+        //alert( "Request failed: " + textStatus );
+        $("#notice_list").html('<li>게시물이 없습니다.</li>');
+    });
+}
+
+function fillQNA() {
+    $.ajax({
+        method: "GET",
+        url: "/board/bbs/api_board.php?bo_table=qna&li_num=6",
+        dataType: "html"
+    }).done(function (html) {
+        $("#qna_list").html(html);
+    }).fail(function( jqXHR, textStatus ) {
+        //alert( "Request failed: " + textStatus );
+        $("#qna_list").html('<li>게시물이 없습니다.</li>');
+    });
 }
 
 /*
