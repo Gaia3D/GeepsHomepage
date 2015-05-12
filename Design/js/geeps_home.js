@@ -35,7 +35,7 @@ function onClick_Button(event) {
     var datasrc = obj.attr("datasrc");
 
     switch (datatype) {
-        case "banner":
+        case "ui":
             switch (datasrc) {
                 case "prev":
                     $scroller.rotateForward();

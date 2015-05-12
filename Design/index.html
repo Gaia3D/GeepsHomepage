@@ -20,7 +20,7 @@
 				<div class="search">
 					<input type="hidden" name="as_sitesearch" id="as_sitesearch" value="geeps.krihs.re.kr">
                     <input type="text" placeholder="예:QGIS 강의" id="q" name="q" results="5">
-                    <button type="submit" class="btn" title="검색" name="sa"></button>
+                    <button type="submit" datatype="ui" datasrc="search" class="btn" title="검색" name="sa"></button>
 				</div>
 			</div>
 		</form>
@@ -63,9 +63,9 @@
             <li><button datatype="wiki">무료 공간자료 취득방법</button></li>
         </ul>
         <ul class="submenu com" style="display:none; left:788px;">
-        	<li><button datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=geeps">GEEPS에게 바라다</button></li>
-            <li><button datatype="link" datasrc="http://osgeo.kr">오픈소스 GIS 커뮤니티</button></li>
-            <li><button datatype="wiki">한글화 참여하기</button></li>
+        	<li><button datatype="move_to" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=geeps">GEEPS에게 바라다</button></li>
+            <li><button datatype="wiki">오픈소스 GIS 커뮤니티</button></li>
+            <li><button datatype="wiki" datasrc="한글자료 제공 사이트">한글화 참여하기</button></li>
             <li><button datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=notice">공지사항</button></li>
             <li><button datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=qna">Q&amp;A</button></li>
         </ul>
@@ -110,6 +110,7 @@
         <div class="board_list">
             <h3>NOTICE<button class="more" datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=notice">+ 더보기</button></h3>
             <ul id="notice_list">
+				<!--
                 <li>
                     <a href="#">우주강국 실현을 위한 정책 심포지엄이 계최될 예정이라고 합니다.</a>
                 </li>
@@ -128,6 +129,8 @@
                 <li>
                     <a href="#">재난재해에 위성정보 활용 '우주위험＇..</a>
                 </li>
+				-->
+				<li>내용을 불러오고 있습니다...</li>
             </ul>
         </div>
         <!-- END NOTICE -->
@@ -135,6 +138,7 @@
         <div class="board_list">
             <h3>Q&amp;A<button class="more" datatype="link" datasrc="http://geeps.krihs.re.kr/board/bbs/board.php?bo_table=qna">+ 더보기</button></h3>
             <ul id="qna_list">
+				<!--
                 <li>
                     <a href="#">우주강국 실현을 위한 정책 심포지엄..</a>
                 </li>
@@ -153,6 +157,8 @@
                 <li>
                     <a href="#">재난재해에 위성정보 활용 '우주위험＇..</a>
                 </li>
+				-->
+				<li>내용을 불러오고 있습니다...</li>
             </ul>
         </div>
         <!-- END Q&A -->
@@ -177,8 +183,8 @@
 </div>
 
 <div class="section banner">
-    <button class="prev" datatype="banner" datasrc="prev"></button>
-    <button class="next" datatype="banner" datasrc="next"></button>
+    <button class="prev" datatype="ui" datasrc="prev"></button>
+    <button class="next" datatype="ui" datasrc="next"></button>
     <div class="rolling">
         <ul>
             <li><a target="_blank" href="http://www.nkis.re.kr"><img alt="국가정책연구포털" src="./images/banner_nkis.gif"></a></li>
