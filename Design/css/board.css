@@ -1,0 +1,168 @@
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:'NanumGothic','µ¸¿ò',Dotum,sans-serif;}
+button{border:0;border: 0;outline: 0; background: #fff; cursor: pointer;}
+
+#header_wrap {
+  height: 164px;
+  background: url(../images/header_bg.png) repeat-x;
+}
+
+#footer {
+width:986px;
+margin:20px auto;
+padding:20px 0 0 0;
+color:#888;
+font-size:12px;
+
+border-top:2px solid #333;
+
+background:url(../images/logo_krihs.png) no-repeat 0 20px;
+}
+#footer p {
+margin:5px 0 0 150px;
+}
+#footer p span {
+display:inline-block;
+margin-right:20px;
+}
+
+.menu {
+position:absolute;
+top:105px;
+margin:0;
+padding:0;
+border-left:1px solid #adadad;	
+}
+.menu li {
+float:left;
+display:inline;
+border-right:1px solid #adadad;
+border-top:1px solid #adadad;
+border-bottom:1px solid #adadad;
+}
+.menu li button * {
+vertical-align:middle;
+}
+.menu li button {
+display:inline-block;
+float:left;
+height:57px;
+width:196px;
+background: #fff;
+background-image:url(../images/menu.png);
+background-repeat:no-repeat;
+}
+.menu li button.about {
+background-position:0 0;
+}
+.menu button.on {
+color:#FFF;
+background-color:#588adf;
+}
+.menu li button.about.on{
+background-position:0 -57px;
+}
+.menu button.edu {
+background-position:0 -114px;
+}
+.menu button.edu.on {
+background-position:0 -171px;
+}
+.menu button.down {
+background-position:0 -228px;
+}
+.menu button.down.on {
+background-position:0 -285px;
+}
+.menu button.tech {
+background-position:0 -342px;
+}
+.menu button.tech.on {
+background-position:0 -399px;
+}
+.menu button.com {
+background-position:0 -456px;
+}
+.menu button.com.on{
+background-position:0 -513px;
+}
+
+
+.menu li button.about:hover {
+color:#FFF;
+background-color:#588adf;
+background-position:0 -57px;
+}
+.menu button.edu:hover {
+color:#FFF;
+background-color:#588adf;
+background-position:0 -171px;
+}
+.menu button.down:hover {
+color:#FFF;
+background-color:#588adf;
+background-position:0 -285px;
+}
+.menu button.tech:hover {
+color:#FFF;
+background-color:#588adf;
+background-position:0 -399px;
+}
+.menu button.com:hover {
+color:#FFF;
+background-color:#588adf;
+background-position:0 -513px;
+}
+
+
+.menu button span {
+display:inline-block;
+font-size:18px;
+font-weight:bold;
+vertical-align: middle;
+text-align: center;
+margin-left: 50px;
+}
+
+
+.submenu {
+position:absolute;
+top:163px;
+width:196px;
+padding:15px 0 7px;
+border-left:1px solid #588adf;
+border-right:1px solid #588adf;
+border-bottom:1px solid #588adf;
+background-color:#fff;
+background-image:url(../images/submenu.png);
+background-repeat:no-repeat;
+background-position:top;
+z-index:100;
+}
+.submenu a {
+display:inline-block;
+margin:5px;
+padding-left:20px;
+font-size:13px;
+}
+.submenu a:hover {
+text-decoration:underline;
+}
+.submenu a.on {
+color:#588adf;
+}
+
+.submenu button {
+display:inline-block;
+margin:5px;
+padding-left:20px;
+font-size:13px;
+background: #fff;
+}
+.submenu button:hover {
+font-weight: bold;
+}
+.submenu button.on {
+color:#588adf;
+}

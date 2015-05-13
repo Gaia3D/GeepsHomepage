@@ -4,7 +4,12 @@
 $(window).load(onLoad);
 
 function onLoad() {
+	$("#menu_container").load("/menu.html", attachEvent);
     $scroller = new Scroller(".rolling", "$scroller", 5000);
+}
+
+// 버튼에 이벤트 부착
+function attachEvent() {
 	$("button").bind( "click", onClick_Button);
 	$(".menu button").bind( "mouseenter", onMouseEnter_Menu).bind( "mouseleave", onMouseLeave_Menu);
 	$(".submenu").bind( "mouseenter", onMouseEnter_Submenu).bind( "mouseleave", onMouseLeave_Submenu);
@@ -52,14 +57,18 @@ function onClick_Button(event) {
             var title = datasrc ? datasrc : submenu;
             //loadWiki(menu, submenu, title);
             searchText = "?wiki="+title;
-            location.search = searchText;
-            break;
-
-        case "move_to":
-            location.href = datasrc;
+			if ($("#contents_wrap").length) {
+				location.search = searchText;
+			} else {
+				location.href = location.origin + "/" + searchText;
+			}
             break;
 
         case "link":
+            location.href = datasrc;
+            break;
+
+        case "window":
             window.open(datasrc);
             break;
 
@@ -68,7 +77,7 @@ function onClick_Button(event) {
             break;
 
         default :
-            alert("Type: "+datatype+",  Src: "+datasrc);
+            //alert("Type: "+datatype+",  Src: "+datasrc);
             break;
     }
 }
@@ -135,7 +144,7 @@ Scroller.prototype.rotateBackward = function() {
 ** WIKI
  */
 function loadWiki(menu, submenu, title) {
-    var apiUrl = "http://geeps.krihs.re.kr/wiki/index.php?action=render&title=" + encodeURIComponent(title);
+    var apiUrl = "/wiki/index.php?action=render&title=" + encodeURIComponent(title);
     var errorMessage ='<h1>죄송합니다.</h1> 요청한 자료를 읽지 못했습니다.<br>잠시 후 다시 시도해 주십시오.';
 
     $("#contents_title").html(title);
