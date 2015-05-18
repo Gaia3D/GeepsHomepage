@@ -4,7 +4,7 @@
 $(window).load(onLoad);
 
 function onLoad() {
-	$("#menu_container").load("/menu.html", attachEvent);
+	$("#menu_container").load("./menu.html", attachEvent);
     $scroller = new Scroller(".rolling", "$scroller", 5000);
 }
 

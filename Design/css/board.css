@@ -7,11 +7,16 @@ button{border:0;border: 0;outline: 0; background: #fff; cursor: pointer;}
   height: 164px;
   background: url(../images/header_bg.png) repeat-x;
 }
-
+#header {
+position:relative;
+width:986px;
+margin:0 auto;
+padding-top:25px;
+}
 #footer {
 width:986px;
-margin:20px auto;
-padding:20px 0 0 0;
+margin:0px auto; 
+padding: 20px 0 20px;
 color:#888;
 font-size:12px;
 
@@ -30,7 +35,7 @@ margin-right:20px;
 .menu {
 position:absolute;
 top:105px;
-margin:0;
+margin:0 auto;
 padding:0;
 border-left:1px solid #adadad;	
 }

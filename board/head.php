@@ -33,10 +33,10 @@ if (G5_IS_MOBILE) {
     }
     ?>
 
-    <div id="hd_wrapper">
-
+    <div id="header_wrap">
+      <div id="header">
         <div id="logo">
-            <a href="<?php echo G5_URL ?>"><img src="<?php echo G5_IMG_URL ?>/logo.jpg" alt="<?php echo $config['cf_title']; ?>"></a>
+            <a href="<?php echo G5_URL ?>"><img src="../../images/logo_board.png" alt="<?php echo $config['cf_title']; ?>"></a>
         </div>
 
         <fieldset id="hd_sch">
@@ -45,7 +45,7 @@ if (G5_IS_MOBILE) {
             <input type="hidden" name="sfl" value="wr_subject||wr_content">
             <input type="hidden" name="sop" value="and">
             <label for="sch_stx" class="sound_only">검색어<strong class="sound_only"> 필수</strong></label>
-            <input type="text" name="stx" id="sch_stx" maxlength="20">
+            <input type="text" name="stx" id="sch_stx" maxlength="30">
             <input type="submit" id="sch_submit" value="검색">
             </form>
 
@@ -96,64 +96,12 @@ if (G5_IS_MOBILE) {
             <li><a href="<?php echo G5_BBS_URL ?>/register.php">회원가입</a></li>
             <li><a href="<?php echo G5_BBS_URL ?>/login.php"><b>로그인</b></a></li>
             <?php }  ?>
-            <li><a href="<?php echo G5_BBS_URL ?>/faq.php">FAQ</a></li>
-            <li><a href="<?php echo G5_BBS_URL ?>/qalist.php">1:1문의</a></li>
-            <li><a href="<?php echo G5_BBS_URL ?>/current_connect.php">접속자 <?php echo connect(); // 현재 접속자수  ?></a></li>
-            <li><a href="<?php echo G5_BBS_URL ?>/new.php">새글</a></li>
         </ul>
-    </div>
 
-    <hr>
-
-    <nav id="gnb">
-        <h2>메인메뉴</h2>
-        <ul id="gnb_1dul">
-            <?php
-            $sql = " select *
-                        from {$g5['menu_table']}
-                        where me_use = '1'
-                          and length(me_code) = '2'
-                        order by me_order, me_id ";
-            $result = sql_query($sql, false);
-            $gnb_zindex = 999; // gnb_1dli z-index 값 설정용
-
-            for ($i=0; $row=sql_fetch_array($result); $i++) {
-            ?>
-            <li class="gnb_1dli" style="z-index:<?php echo $gnb_zindex--; ?>">
-                <a href="<?php echo $row['me_link']; ?>" target="_<?php echo $row['me_target']; ?>" class="gnb_1da"><?php echo $row['me_name'] ?></a>
-                <?php
-                $sql2 = " select *
-                            from {$g5['menu_table']}
-                            where me_use = '1'
-                              and length(me_code) = '4'
-                              and substring(me_code, 1, 2) = '{$row['me_code']}'
-                            order by me_order, me_id ";
-                $result2 = sql_query($sql2);
-
-                for ($k=0; $row2=sql_fetch_array($result2); $k++) {
-                    if($k == 0)
-                        echo '<ul class="gnb_2dul">'.PHP_EOL;
-                ?>
-                    <li class="gnb_2dli"><a href="<?php echo $row2['me_link']; ?>" target="_<?php echo $row2['me_target']; ?>" class="gnb_2da"><?php echo $row2['me_name'] ?></a></li>
-                <?php
-                }
-
-                if($k > 0)
-                    echo '</ul>'.PHP_EOL;
-                ?>
-            </li>
-            <?php
-            }
-
-            if ($i == 0) {  ?>
-                <li id="gnb_empty">메뉴 준비 중입니다.<?php if ($is_admin) { ?> <br><a href="<?php echo G5_ADMIN_URL; ?>/menu_list.php">관리자모드 &gt; 환경설정 &gt; 메뉴설정</a>에서 설정하실 수 있습니다.<?php } ?></li>
-            <?php } ?>
-        </ul>
-    </nav>
-</div>
-<!-- } 상단 끝 -->
-
-<hr>
+		<div id="menu_container">
+		</div>
+	  </div> <!-- END HEADER -->
+    </div> <!-- END HEADER WARP -->
 
 <!-- 콘텐츠 시작 { -->
 <div id="wrapper">
