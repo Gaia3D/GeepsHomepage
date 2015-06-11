@@ -4,7 +4,7 @@
 $(window).load(onLoad);
 
 function onLoad() {
-	$("#menu_container").load("./menu.html", attachEvent);
+	$("#menu_container").load("/menu.html", attachEvent);
     $scroller = new Scroller(".rolling", "$scroller", 5000);
 }
 
@@ -60,7 +60,13 @@ function onClick_Button(event) {
 			if ($("#contents_wrap").length) {
 				location.search = searchText;
 			} else {
-				location.href = location.origin + "/" + searchText;
+				// For IE Bug
+				//location.href = location.origin + "/" + searchText;
+				var crrHref = location.href;
+				var pathname = location.pathname;
+				var search = location.search;
+				if (search) pathname += search;
+				location.href = location.href.replace(pathname, "") + "/" + searchText;
 			}
             break;
 
